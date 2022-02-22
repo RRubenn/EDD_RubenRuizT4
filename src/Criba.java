@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 /**
- * Clase que  encuentra numeros primos desde el 2 y otro numero dado como maximo.
+ * Clase que encuentra numeros primos desde el 2 y otro numero dado como maximo.
+ * Devuelve una Array con solo los numeros primos en ese rango.
+ * @return primos
  * @author Ruben Ruiz Moliner
  * @version 1.0.3
  * */
