@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Criba {
     private static int sizeArray;
-    private static boolean[] esPrimo;
+    private static boolean[] booleansPrimes;
     private static int num;
     private static int[] primos;
     private static int cuentaPrimos;
@@ -26,14 +26,14 @@ public class Criba {
     private static void generateBooleanArray(int max) {
         // Tamaño del array
         sizeArray = max + 1;
-        esPrimo = new boolean[sizeArray];
+        booleansPrimes = new boolean[sizeArray];
 
         // Eliminar el 0 y el 1, que no son primos
-        esPrimo[0] = esPrimo[1] = false;
+        booleansPrimes[0] = booleansPrimes[1] = false;
 
         // Inicializar el array
         for (num = 2; num < sizeArray; num++) {
-            esPrimo[num] = true;
+            booleansPrimes[num] = true;
         }
     }
 
@@ -41,10 +41,10 @@ public class Criba {
         // Recorre todos los números hasta la raiz cuadrada de estos.
         int multiple;
         for (num = 2; num < Math.sqrt(sizeArray); num++) {
-            if (esPrimo[num]) {
+            if (booleansPrimes[num]) {
                 // Si num es primo, elimina los múltiplos de num hasta sizeArray.
                 for (multiple = 2 * num; multiple < sizeArray; multiple += num) {
-                    esPrimo[multiple] = false;
+                    booleansPrimes[multiple] = false;
                 }
             }
         }
@@ -54,7 +54,7 @@ public class Criba {
         // ¿Cuántos primos hay?
         cuentaPrimos = 0;
         for (num = 0; num < sizeArray; num++) {
-            if (esPrimo[num]) {
+            if (booleansPrimes[num]) {
                 cuentaPrimos++;
             }
         }
@@ -65,7 +65,7 @@ public class Criba {
         int j = 0;
         primos = new int[cuentaPrimos];
         for (int i = 0; i < sizeArray; i++) {
-            if (esPrimo[i]) {
+            if (booleansPrimes[i]) {
                 primos[j] = i;
                 j++;
             }
