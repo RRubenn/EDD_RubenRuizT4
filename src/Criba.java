@@ -2,11 +2,9 @@ import java.util.Scanner;
 
 /**
  * Clase que encuentra numeros primos desde el 2 y otro numero dado como maximo.
- * Devuelve una Array con solo los numeros primos en ese rango.
- * @return primos
  * @author Ruben Ruiz Moliner
  * @version 1.0.3
- * */
+ */
 
 public class Criba {
     private static int sizeArray;
@@ -18,7 +16,9 @@ public class Criba {
     /**
      * Esta es la funcion principal de la clase Criba.
      * @param numMax
-     * */
+     * Devuelve una Array con solo los numeros primos en ese rango.
+     * @return int[] primos
+     */
     public static int[] generarPrimos(int numMax) {
         if (numMax >= 2) {
             //Genera números primos de 1 a numMax
@@ -35,7 +35,7 @@ public class Criba {
      * Genera la Array de Booleanos primaria, inicializandola a True.
      * A partir de el número indicado como maximo.
      * Excepto el 0 y el 1 que no se consideran primos.
-     * */
+     */
     private static void generateBooleanArray(int max) {
         // Tamaño del array
         sizeArray = max + 1;
