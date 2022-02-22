@@ -14,7 +14,9 @@ public class Criba {
             generateBooleanArray(max);
             CribaPrimes();
             countPrimeNumbers();
-            return primos = generateVectorPrimes();
+            generateVectorPrimes();
+            return primos;
+            // Vector generado
         } else { // max < 2
             return primos;
             // Vector vacío
@@ -58,7 +60,7 @@ public class Criba {
         }
     }
 
-    private static int[] generateVectorPrimes() {
+    private static void generateVectorPrimes() {
         // Rellenar el vector de números primos
         int j = 0;
         primos = new int[cuentaPrimos];
@@ -68,7 +70,6 @@ public class Criba {
                 j++;
             }
         }
-        return primos;
     }
 
     public static void main(String[] args) {
