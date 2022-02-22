@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Clase que encuentra numeros primos desde el 2 y otro numero dado como maximo.
+ * Clase que se encarga de cribar numeros.
  * @author Ruben Ruiz Moliner
  * @version 1.0.3
  */
@@ -14,10 +14,11 @@ public class Criba {
     private static int cuentaPrimos;
 
     /**
-     * Esta es la funcion principal de la clase Criba.
+     * Encuentra numeros primos desde el 2 y otro numero dado como maximo. Esta es la funcion principal de la clase Criba.
      * @param numMax
-     * Devuelve una Array con solo los numeros primos en ese rango.
-     * @return int[] primos
+     * Usa int numMax para generar la Array de numeros primos hasta ese maximo.
+     * @return primos
+     * - Devuelve int[] primos con solo los numeros primos hallados en ese rango.
      */
     public static int[] generarPrimos(int numMax) {
         if (numMax >= 2) {
