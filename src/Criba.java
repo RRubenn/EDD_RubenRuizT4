@@ -17,7 +17,6 @@ public class Criba {
      * Esta es la funcion principal de la clase Criba.
      * @param numMax
      * */
-
     public static int[] generarPrimos(int numMax) {
         if (numMax >= 2) {
             //Genera números primos de 1 a numMax
