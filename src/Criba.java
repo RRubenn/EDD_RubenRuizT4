@@ -1,60 +1,96 @@
 import java.util.Scanner;
 
 public class Criba {
-    // Generar números primos de 1 a max
-    public static int[] generarPrimos (int max)
-    {
-        int i,j;
+    private static int sizeArray;
+    private static boolean[] esPrimo;
+    private static int num;
+    private static int[] primos;
+    private static int cuentaPrimos;
+
+    public static int[] generarPrimos(int max) {
+        primos = new int[0];
         if (max >= 2) {
-// Declaraciones
-            int dim = max + 1; // Tamaño del array
-            boolean[] esPrimo = new boolean[dim];
-// Inicializar el array
-            for (i=0; i<dim; i++)
-                esPrimo[i] = true;
-// Eliminar el 0 y el 1, que no son primos
-            esPrimo[0] = esPrimo[1] = false;
-// Criba
-            for (i=2; i<Math.sqrt(dim)+1; i++) {
-                if (esPrimo[i]) {
-// Eliminar los múltiplos de i
-                    for (j=2*i; j<dim; j+=i)
-                        esPrimo[j] = false;
-                }
-            }
-// ¿Cuántos primos hay?
-            int cuenta = 0;
-            for (i=0; i<dim; i++) {
-                if (esPrimo[i])
-                    cuenta++;
-            }
-// Rellenar el vector de números primos
-            int[] primos = new int[cuenta];
-            for (i=0, j=0; i<dim; i++) {
-                if (esPrimo[i])
-                    primos[j++] = i;
-            }
-            return primos;
+            // Genera números primos de 1 a max
+            generateBooleanArray(max);
+            CribaPrimes();
+            countPrimeNumbers();
+            return primos = generateVectorPrimes();
         } else { // max < 2
-            return new int[0];
-// Vector vacío
+            return primos;
+            // Vector vacío
         }
     }
-    public static void main(String[] args) {
-        Scanner teclado=new Scanner(System.in);
-        System.out.println("Introduce el número para la criba de Erastótenes:");
-        int dato=teclado.nextInt();
-        int vector[]=new int[dato];
-        System.out.println("\nVector inicial hasta :"+dato);
-        for (int i = 0; i < vector.length; i++) {
-            if (i%10==0) System.out.println();
-            System.out.print(i+1+"\t");
+
+    private static void generateBooleanArray(int max) {
+        // Tamaño del array
+        sizeArray = max + 1;
+        esPrimo = new boolean[sizeArray];
+
+        // Eliminar el 0 y el 1, que no son primos
+        esPrimo[0] = esPrimo[1] = false;
+
+        // Inicializar el array
+        for (num = 2; num < sizeArray; num++) {
+            esPrimo[num] = true;
         }
-        vector=generarPrimos(dato);
-        System.out.println("\nVector de primos hasta:"+dato);
+    }
+
+    private static void CribaPrimes() {
+        // Recorre todos los números hasta la raiz cuadrada de estos.
+        int multiple;
+        for (num = 2; num < Math.sqrt(sizeArray); num++) {
+            if (esPrimo[num]) {
+                // Si num es primo, elimina los múltiplos de num hasta sizeArray.
+                for (multiple = 2 * num; multiple < sizeArray; multiple += num) {
+                    esPrimo[multiple] = false;
+                }
+            }
+        }
+    }
+
+    private static void countPrimeNumbers() {
+        // ¿Cuántos primos hay?
+        cuentaPrimos = 0;
+        for (num = 0; num < sizeArray; num++) {
+            if (esPrimo[num]) {
+                cuentaPrimos++;
+            }
+        }
+    }
+
+    private static int[] generateVectorPrimes() {
+        // Rellenar el vector de números primos
+        int j = 0;
+        primos = new int[cuentaPrimos];
+        for (int i = 0; i < sizeArray; i++) {
+            if (esPrimo[i]) {
+                primos[j] = i;
+                j++;
+            }
+        }
+        return primos;
+    }
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Introduce el número para la criba de Erastótenes:");
+        int dato = teclado.nextInt();
+        int vector[] = new int[dato];
+
+        System.out.println("\nVector inicial hasta :" + dato);
         for (int i = 0; i < vector.length; i++) {
-            if (i%10==0) System.out.println();
-            System.out.print(vector[i]+"\t");
+            if (i % 10 == 0) {
+                System.out.println();
+            }
+            System.out.print(i + 1 + "\t");
+        }
+        vector = generarPrimos(dato);
+        System.out.println("\nVector de primos hasta:" + dato);
+        for (int i = 0; i < vector.length; i++) {
+            if (i % 10 == 0) {
+                System.out.println();
+            }
+            System.out.print(vector[i] + "\t");
         }
     }
 }
