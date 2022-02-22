@@ -13,6 +13,11 @@ public class Criba {
     private static int[] primos = new int[0];
     private static int cuentaPrimos;
 
+    /**
+     * Esta es la funcion principal de la clase Criba.
+     * @param numMax
+     * */
+
     public static int[] generarPrimos(int numMax) {
         if (numMax >= 2) {
             //Genera números primos de 1 a numMax
@@ -24,6 +29,12 @@ public class Criba {
         return primos;
     }
 
+    /**
+     * Primera funcion de generarPrimos():
+     * Genera la Array de Booleanos primaria, inicializandola a True.
+     * A partir de el número indicado como maximo.
+     * Excepto el 0 y el 1 que no se consideran primos.
+     * */
     private static void generateBooleanArray(int max) {
         // Tamaño del array
         sizeArray = max + 1;
@@ -38,6 +49,11 @@ public class Criba {
         }
     }
 
+    /**
+     * Despues de generateBooleanArray(int):
+     * Funcion que recorre todos los números desde el 2 hasta el maximo
+     * y en el progreso si son primos elimina sus múltiplos.
+     */
     private static void CribaPrimes() {
         // Recorre todos los números hasta la raiz cuadrada de estos.
         int multiple;
@@ -51,6 +67,10 @@ public class Criba {
         }
     }
 
+    /**
+     * Despues de CribaPrimes():
+     * Cuenta el numero de primos que refleja booleansPrimes[] como True
+     */
     private static void countPrimeNumbers() {
         // ¿Cuántos primos hay?
         cuentaPrimos = 0;
@@ -61,6 +81,11 @@ public class Criba {
         }
     }
 
+    /**
+     * Despues de countPrimeNumbers():
+     * Genera el contenido de primos[], dejando solo aquellos numeros que han resultado ser Primos.
+     * Esta Array será devuelta por la funcion principal.
+     */
     private static void generateVectorPrimes() {
         // Rellenar el vector de números primos
         int j = 0;
