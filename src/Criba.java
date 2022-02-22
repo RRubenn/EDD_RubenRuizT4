@@ -7,17 +7,17 @@ public class Criba {
     private static int[] primos;
     private static int cuentaPrimos;
 
-    public static int[] generarPrimos(int max) {
+    public static int[] generarPrimos(int numMax) {
         primos = new int[0];
-        if (max >= 2) {
-            // Genera números primos de 1 a max
-            generateBooleanArray(max);
+        if (numMax >= 2) {
+            // Genera números primos de 1 a numMax
+            generateBooleanArray(numMax);
             CribaPrimes();
             countPrimeNumbers();
             generateVectorPrimes();
             return primos;
             // Vector generado
-        } else { // max < 2
+        } else { // numMax < 2
             return primos;
             // Vector vacío
         }
