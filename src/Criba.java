@@ -4,23 +4,18 @@ public class Criba {
     private static int sizeArray;
     private static boolean[] booleansPrimes;
     private static int num;
-    private static int[] primos;
+    private static int[] primos = new int[0];
     private static int cuentaPrimos;
 
     public static int[] generarPrimos(int numMax) {
-        primos = new int[0];
         if (numMax >= 2) {
             // Genera números primos de 1 a numMax
             generateBooleanArray(numMax);
             CribaPrimes();
             countPrimeNumbers();
             generateVectorPrimes();
-            return primos;
-            // Vector generado
-        } else { // numMax < 2
-            return primos;
-            // Vector vacío
         }
+        return primos;
     }
 
     private static void generateBooleanArray(int max) {
