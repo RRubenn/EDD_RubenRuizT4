@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 /**
- * Clase que genera encuentra números primos desde el 2 y otro número dado como máximo.
- * @author Rubén Ruiz Moliner * @version 1.0.3
+ * Clase que  encuentra numeros primos desde el 2 y otro numero dado como maximo.
+ * @author Ruben Ruiz Moliner
+ * @version 1.0.3
  * */
 
 public class Criba {
