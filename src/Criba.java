@@ -9,7 +9,9 @@ public class Criba {
 
     public static int[] generarPrimos(int numMax) {
         if (numMax >= 2) {
-            // Genera números primos de 1 a numMax
+            /**
+             * Genera números primos de 1 a numMax
+             * */
             generateBooleanArray(numMax);
             CribaPrimes();
             countPrimeNumbers();
